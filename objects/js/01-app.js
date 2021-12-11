@@ -6,6 +6,10 @@ class Client {
         this.name = name;
         this.money = money;
     }
+    
+    showInfo () {
+        return `Client: ${ this.name }, Money: ${ this.money }`;
+    }
 }
 
 // Class Expresion
@@ -14,11 +18,17 @@ const Client2 = class {
         this.name = name;
         this.money = money;
     }
+
+    showInfo () {
+        return `Client: ${ this.name }, Money: ${ this.money }`;
+    }
 }
 
 // Init classes
-const juan = new Client('Juan', 400);
-console.log(juan);
+const client_demo = new Client('Juan', 400);
+console.log(client_demo);
+console.log(client_demo.showInfo());
 
-const juan2 = new Client2('Juan', 400);
-console.log(juan2);
+const client2_demo = new Client2('Juan', 400);
+console.log(client2_demo);
+console.log(client2_demo.showInfo());
