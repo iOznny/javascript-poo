@@ -6,11 +6,11 @@ class Client {
     #name;
     
     constructor(name, money) {
-        this.name = name;
+        this.#name = name;
         this.money = money;
     }
     
-    showInfo () {
+    showInfo() {
         return `Client: ${ this.name }, Money: ${ this.money }`;
     }
 
@@ -18,7 +18,17 @@ class Client {
     static welcome() {
         return 'Bienvenido al Cajero';
     }
+
+    setName(name) {
+        this.#name = name;
+    }
+
+    getName() {
+        return this.#name;
+    }
 }
 
 const juan = new Client('Juan', 123);
-console.log(juan.name);
+console.log(juan);
+juan.setName('Demo');
+console.log(juan.getName());

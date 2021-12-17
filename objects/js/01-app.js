@@ -30,9 +30,9 @@ const Client2 = class {
 }
 
 // Init classes
-const client_demo = new Client('Juan', 400);
-// console.log(client_demo);
-// console.log(client_demo.showInfo());
+const js1 = new Client('Juan', 400);
+// console.log(js1);
+// console.log(js1.showInfo());
 console.log(Client.welcome());
 
 const client2_demo = new Client2('Juan', 400);
