@@ -29,6 +29,6 @@ class Client {
 }
 
 const juan = new Client('Juan', 123);
-console.log(juan);
+// console.log(juan);
 juan.setName('Demo');
-console.log(juan.getName());
+// console.log(juan.getName());
