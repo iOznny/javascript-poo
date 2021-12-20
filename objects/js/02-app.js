@@ -34,7 +34,7 @@ class Company extends Client {
 const client_demo = new Client('Juan', 400);
 const company = new Company('Juan', 400, 1234567890, 'Learn Online');
 
-console.log(company);
-console.log(company.showInfo());
-console.log(Client.welcome());
-console.log(Company.welcome());
+// console.log(company);
+// console.log(company.showInfo());
+// console.log(Client.welcome());
+// console.log(Company.welcome());

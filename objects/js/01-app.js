@@ -33,7 +33,7 @@ const Client2 = class {
 const js1 = new Client('Juan', 400);
 // console.log(js1);
 // console.log(js1.showInfo());
-console.log(Client.welcome());
+// console.log(Client.welcome());
 
 const client2_demo = new Client2('Juan', 400);
 // console.log(client2_demo);
