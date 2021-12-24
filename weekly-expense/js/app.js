@@ -16,6 +16,12 @@ class Budget {
         this.remaining = Number(budget);
         this.expenses = [];
     }
+
+    // New spending
+    newSpending(spending) {
+        this.expenses = [...this.expenses, spending];
+        console.log(this.expenses);
+    }
 }
 
 class UI {
@@ -80,7 +86,7 @@ function addBudget(e) {
 
     // Read input form
     const name = document.querySelector('#gasto').value;
-    const amount = document.querySelector('#cantidad').value;
+    const amount = Number(document.querySelector('#cantidad').value);
 
     // Checking
     if (name === '' || amount === '') {
@@ -91,6 +97,9 @@ function addBudget(e) {
         return;
     }
 
-    // Add new budget into list 
+    // Create object literal
+    const spending = { id: Date.now(), name, amount };    
 
+    // Add new budget into list 
+    budget.newSpending(spending);
 }
