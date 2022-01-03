@@ -19,12 +19,12 @@ class Budget {
 
     // New spending
     newSpending(spending) {
-        this.expenses = [...this.expenses, spending];
-        console.log(this.expenses);
+        this.expenses = [...this.expenses, spending];        
     }
 }
 
 class UI {
+    // Insert budget
     insertBudget(amount) {
         const { budget, remaining } = amount;
 
@@ -56,6 +56,42 @@ class UI {
         setTimeout(() => {
             divMessage.remove();
         }, 3000)
+    }
+
+    // Add expenses
+    addExpenses(expenses) {   
+        // Clean previus html   
+        this.cleanHTML();
+
+        expenses.forEach(expense => {
+            const { id, amount, name } = expense;
+
+            // Create li
+            const newBudget = document.createElement('li');
+            newBudget.className = 'list-group-item d-flex justify-content-between align-items-center';
+            newBudget.dataset.id = id;
+
+            // Add to html budget
+            newBudget.innerHTML = `${ name } <span class="badge badge-primary badge-pill">${ amount }</span>`;
+            
+            // Button to delete budget
+            const btnDelete = document.createElement('button');
+            btnDelete.classList.add('btn', 'btn-danger', 'borrar-gasto');
+            btnDelete.innerHTML = 'Borrar &times;';
+            newBudget.appendChild(btnDelete);
+            
+            // Add in html
+            expenseList.appendChild(newBudget);
+
+            console.log(newBudget);
+        });
+    }
+
+    // Clean html
+    cleanHTML() {
+        while (expenseList.firstChild) {
+            expenseList.removeChild(expenseList.firstChild);
+        }
     }
 }
 
@@ -90,10 +126,10 @@ function addBudget(e) {
 
     // Checking
     if (name === '' || amount === '') {
-        ui.printAlert('Los campos son obligatorios.', 'error');
+        ui.printAlert('Los campos son obligatorios.');
         return;
     } else if (amount <= 0 || isNaN(amount)) {
-        ui.printAlert('Cantidad no valida, verifique.', 'error');
+        ui.printAlert('Cantidad no valida, verifique.');
         return;
     }
 
@@ -102,4 +138,15 @@ function addBudget(e) {
 
     // Add new budget into list 
     budget.newSpending(spending);
+
+    // Message
+    ui.printAlert('Gasto agregado correctamente.', 'success');
+
+    // Print the expenses
+    const { expenses } = budget;
+    ui.addExpenses(expenses);
+
+
+    // Reset form
+    form.reset();
 }
