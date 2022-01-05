@@ -1,7 +1,6 @@
 // Access Modifiers (public, private & protected)
 
 class Client {
-
     // Private property that can only be modified by set or get
     #name;
     
@@ -30,5 +29,6 @@ class Client {
 
 const juan = new Client('Juan', 123);
 // console.log(juan);
+
 juan.setName('Demo');
 // console.log(juan.getName());
