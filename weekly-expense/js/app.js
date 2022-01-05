@@ -69,7 +69,7 @@ class UI {
         // Remove alert
         setTimeout(() => {
             divMessage.remove();
-        }, 3000)
+        }, 3000);
     }
 
     // Add expenses
