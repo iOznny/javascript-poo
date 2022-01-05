@@ -7,6 +7,7 @@ class Client {
         this.money = money;
     }
     
+    // Information client
     showInfo () {
         return `Client: ${ this.name }, Money: ${ this.money }`;
     }
@@ -24,6 +25,7 @@ const Client2 = class {
         this.money = money;
     }
 
+    // Information client
     showInfo () {
         return `Client: ${ this.name }, Money: ${ this.money }`;
     }
