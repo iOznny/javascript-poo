@@ -4,6 +4,7 @@ const expenseList = document.querySelector('#gastos ul');
 
 // Events
 eventListeners();
+
 function eventListeners() {
     document.addEventListener('DOMContentLoaded', askBudget);
     form.addEventListener('submit', addBudget);
@@ -140,7 +141,6 @@ class UI {
 // Instantiate
 const ui = new UI();
 let budget;
-
 
 // Functions
 function askBudget() {
