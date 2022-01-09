@@ -26,7 +26,6 @@ const quoteObj = {
     content: ''
 };
 
-
 function dataQuote(e) {
     console.log(e.target.value);
 }
