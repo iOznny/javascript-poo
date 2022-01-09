@@ -11,6 +11,8 @@ const form = document.querySelector('#nueva-cita');
 // Content List
 const container = document.querySelector('#citas');
 
+
+
 // Run App
 eventListeners();
 function eventListeners() {
@@ -26,6 +28,9 @@ const quoteObj = {
     content: ''
 };
 
+
+
+// Functions
 function dataQuote(e) {
     console.log(e.target.value);
 }
