@@ -14,8 +14,18 @@ const container = document.querySelector('#citas');
 // Run App
 eventListeners();
 function eventListeners() {
-    petInput.addEventListener('change', dataQuote);
+    petInput.addEventListener('input', dataQuote);
 }
+
+const quoteObj = {
+    pet: '',
+    owner: '',
+    phone: '',
+    date: '',
+    hour: '',
+    content: ''
+};
+
 
 function dataQuote(e) {
     console.log(e.target.value);
