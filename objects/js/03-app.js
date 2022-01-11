@@ -17,10 +17,12 @@ class Client {
         return 'Bienvenido al Cajero';
     }
 
+    // Set value name
     setName(name) {
         this.#name = name;
     }
 
+    // Get value name
     getName() {
         return this.#name;
     }
