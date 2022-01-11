@@ -1,5 +1,4 @@
 // Inheritance
-
 class Client {
     constructor(name, money) {
         this.name = name;
