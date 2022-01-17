@@ -22,6 +22,7 @@ function eventListeners() {
     hourInput.addEventListener('input', dataQuote);
 }
 
+// OBject Quote
 const quoteObj = {
     pet: '',
     owner: '',
@@ -30,7 +31,6 @@ const quoteObj = {
     hour: '',
     content: ''
 };
-
 
 // Functions
 function dataQuote(e) {    
