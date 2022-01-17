@@ -6,11 +6,11 @@ const dateInput = document.querySelector('#fecha');
 const hourInput = document.querySelector('#hors');
 const contentInput = document.querySelector('#sintomas');
 
+// Reference Form
 const form = document.querySelector('#nueva-cita');
 
 // Content List
 const container = document.querySelector('#citas');
-
 
 // Run App
 eventListeners();
