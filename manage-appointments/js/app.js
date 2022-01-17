@@ -16,6 +16,10 @@ const container = document.querySelector('#citas');
 eventListeners();
 function eventListeners() {
     petInput.addEventListener('input', dataQuote);
+    ownerInput.addEventListener('input', dataQuote);
+    phoneInput.addEventListener('input', dataQuote);
+    dateInput.addEventListener('input', dataQuote);
+    hourInput.addEventListener('input', dataQuote);
 }
 
 const quoteObj = {
@@ -29,6 +33,8 @@ const quoteObj = {
 
 
 // Functions
-function dataQuote(e) {
-    console.log(e.target.value);
+function dataQuote(e) {    
+    quoteObj[e.target.name] = e.target.value;
+
+    console.log(quoteObj);
 }
