@@ -68,4 +68,5 @@ function newQuote(e) {
         console.log('All items is required');
         return;
     }
+    
 }
