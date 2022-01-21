@@ -32,9 +32,8 @@ const quoteObj = {
     content: ''
 };
 
-// Functions
+// Add items into object quote
 function dataQuote(e) {    
     quoteObj[e.target.name] = e.target.value;
-
     console.log(quoteObj);
 }
