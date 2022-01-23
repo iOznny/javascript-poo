@@ -153,8 +153,7 @@ function askBudget() {
     }
 
     // Budget valid
-    budget = new Budget(budgetUser);    
-
+    budget = new Budget(budgetUser);
     ui.insertBudget(budget);
 }
 
