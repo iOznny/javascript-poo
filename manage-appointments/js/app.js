@@ -20,7 +20,6 @@ class Quote {
 }
 
 class UI {
-    
 }
 
 const quote = new Quote();
