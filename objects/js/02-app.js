@@ -5,7 +5,7 @@ class Client {
         this.money = money;
     }
     
-    showInfo () {
+    showInfo() {
         return `Client: ${ this.name }, Money: ${ this.money }`;
     }
 

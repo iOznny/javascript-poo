@@ -25,8 +25,6 @@ class UI {
 const quote = new Quote();
 const ui = new UI();
 
-
-
 // Run App
 eventListeners();
 function eventListeners() {
