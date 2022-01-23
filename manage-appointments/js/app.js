@@ -19,8 +19,7 @@ class Quote {
     }
 }
 
-class UI {
-}
+class UI { }
 
 const quote = new Quote();
 const ui = new UI();
