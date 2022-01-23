@@ -1,10 +1,10 @@
 // Inputs
+const contentInput = document.querySelector('#sintomas');
 const petInput = document.querySelector('#mascota');
 const ownerInput = document.querySelector('#propietario');
 const phoneInput = document.querySelector('#telefono');
 const dateInput = document.querySelector('#fecha');
 const hourInput = document.querySelector('#hors');
-const contentInput = document.querySelector('#sintomas');
 
 // Reference Form
 const form = document.querySelector('#nueva-cita');
