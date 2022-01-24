@@ -51,8 +51,19 @@ class UI {
         }, 5000);
     }
 
-    printQuotes(quotes) {
-        console.log(quotes);
+    printQuotes({ quotes }) {        
+        quotes.foreach(quote => {
+            const { pet, owner, phone, date, hour, symptom, id } = quote;
+
+            const divQuote = document.createElement('div');
+            divQuote.classList.add('cita', 'p-3');
+            divQuote.dataset.id = id;
+
+            // Scripting of the elements of the quote
+            const petP = document.createElement('h2');
+            petP.classList.add('card-title', 'font-weight-bolder');
+            petP.textContent = pet;
+        });
     }
 }
 
