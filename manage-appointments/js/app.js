@@ -1,10 +1,11 @@
 // Inputs
 const contentInput = document.querySelector('#sintomas');
-const petInput = document.querySelector('#mascota');
-const ownerInput = document.querySelector('#propietario');
-const phoneInput = document.querySelector('#telefono');
-const dateInput = document.querySelector('#fecha');
-const hourInput = document.querySelector('#hors');
+const petInput = document.querySelector('#pet');
+const ownerInput = document.querySelector('#owner');
+const phoneInput = document.querySelector('#phone');
+const dateInput = document.querySelector('#date');
+const hourInput = document.querySelector('#hour');
+const symptomInput = document.querySelector('#symptom');
 
 // Reference Form
 const form = document.querySelector('#nueva-cita');
@@ -33,7 +34,7 @@ function eventListeners() {
     dateInput.addEventListener('input', dataQuote);
     hourInput.addEventListener('input', dataQuote);
 
-    form.addEventListener('submit', newQuote());
+    form.addEventListener('submit', newQuote);
 }
 
 // OBject Quote
@@ -64,5 +65,7 @@ function newQuote(e) {
         console.log('All items is required');
         return;
     }
+
+
     
 }
