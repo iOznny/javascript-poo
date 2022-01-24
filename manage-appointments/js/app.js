@@ -51,7 +51,7 @@ class UI {
         }, 5000);
     }
 
-    printQuotes(quotes) {
+    printQuotes({ quotes }) {
         console.log(quotes);
     }
 }
