@@ -63,6 +63,9 @@ class UI {
             const petP = document.createElement('h2');
             petP.classList.add('card-title', 'font-weight-bolder');
             petP.textContent = pet;
+
+            // Add p at divQuote
+            divQuote.appendChild(petP);
         });
     }
 }
