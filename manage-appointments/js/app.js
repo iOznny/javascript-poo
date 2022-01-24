@@ -50,6 +50,10 @@ class UI {
             div.remove();
         }, 5000);
     }
+
+    printQuotes(quotes) {
+        console.log(quotes);
+    }
 }
 
 const quote = new Quote();
@@ -111,6 +115,7 @@ function newQuote(e) {
     form.reset();
 
     // Show html with the quotes
+    ui.printQuotes(quote);
 }
 
 function resetObject() {
