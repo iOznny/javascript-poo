@@ -18,9 +18,39 @@ class Quote {
     constructor() {
         this.quotes = [];
     }
+
+    // Add quote
+    addQuote(quote) {
+        this.quotes = [...this.quotes, quote];
+        console.log(this.quotes);
+    }
 }
 
-class UI { }
+class UI { 
+    printAlert(message, type) {
+        const div = document.createElement('div');
+
+        div.classList.add('text-center', 'alert', 'd-block', 'col-12');
+
+        // Add class for type
+        if (type === 'error') {
+            div.classList.add('alert-danger');
+        } else {
+            div.classList.add('alert-success');
+        }
+
+        // Message 
+        div.textContent = message;
+
+        // Add to DOM
+        document.querySelector('#contenido').insertBefore(div, document.querySelector('.agregar-cita'));
+
+        // Delete alert after to 5 seconds
+        setTimeout(() => {
+            div.remove();
+        }, 5000);
+    }
+}
 
 const quote = new Quote();
 const ui = new UI();
@@ -33,24 +63,25 @@ function eventListeners() {
     phoneInput.addEventListener('input', dataQuote);
     dateInput.addEventListener('input', dataQuote);
     hourInput.addEventListener('input', dataQuote);
+    symptomInput.addEventListener('input', dataQuote);
 
     form.addEventListener('submit', newQuote);
 }
 
 // OBject Quote
 const quoteObj = {
-    pet: '',
-    owner: '',
-    phone: '',
-    date: '',
-    hour: '',
-    content: ''
+    pet: 'Guero',
+    owner: 'Cesar',
+    phone: '1234567890',
+    date: '2022-01-01',
+    hour: '10:00',
+    symptom: 'awdawd'
 };
 
 // Add items into object quote
 function dataQuote(e) {    
     quoteObj[e.target.name] = e.target.value;
-    console.log(quoteObj);
+    //console.log(quoteObj);
 }
 
 // Checking and adding new quote 
@@ -58,14 +89,35 @@ function newQuote(e) {
     e.preventDefault();
 
     // Information of quote
-    const { pet, owner, phone, date, hour, content } = quoteObj;
+    const { pet, owner, phone, date, hour, symptom } = quoteObj;
 
     // Valid
-    if (pet === '' || owner === '' || phone === '' || date === '' || hour === '' || content === '') {
+    if (pet === '' || owner === '' || phone === '' || date === '' || hour === '' || symptom === '') {
+        ui.printAlert('Todos los campos son obligatorios.', 'error');
         console.log('All items is required');
         return;
     }
 
+    // Generate ID
+    quoteObj.id = Date.now();
 
+    // Create new quote
+    quote.addQuote({...quoteObj});
     
+    // Reset Object
+    resetObject();
+
+    // Reset form
+    form.reset();
+
+    // Show html with the quotes
+}
+
+function resetObject() {
+    quoteObj.pet = '';
+    quoteObj.owner = '';
+    quoteObj.phone = '';
+    quoteObj.date = '';
+    quoteObj.hour = '';
+    quoteObj.symptom = '';
 }
