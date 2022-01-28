@@ -12,6 +12,36 @@ const form = document.querySelector('#nueva-cita');
 
 // Content List
 const container = document.querySelector('#citas');
+form.addEventListener('submit', newQuote);
+
+let editing = false;
+
+// Run App
+eventListeners();
+function eventListeners() {
+    petInput.addEventListener('input', dataQuote);
+    ownerInput.addEventListener('input', dataQuote);
+    phoneInput.addEventListener('input', dataQuote);
+    dateInput.addEventListener('input', dataQuote);
+    hourInput.addEventListener('input', dataQuote);
+    symptomInput.addEventListener('input', dataQuote);    
+}
+
+// OBject Quote
+const quoteObj = {
+    pet: 'Guero',
+    owner: 'Cesar',
+    phone: '1234567890',
+    date: '2022-01-01',
+    hour: '10:00',
+    symptom: 'awdawd'
+};
+
+// Add items into object quote
+function dataQuote(e) {    
+    quoteObj[e.target.name] = e.target.value;
+}
+
 
 // Class Quote & UI
 class Quote {
@@ -21,9 +51,14 @@ class Quote {
 
     // Add quote
     addQuote(quote) {
-        this.quotes = [...this.quotes, quote];
-        console.log(this.quotes);
+        this.quotes = [...this.quotes, quote];        
     }
+
+    // Edit quote
+    editQuote() {}
+
+    // Delete quote
+    deleteQuote() {}
 }
 
 class UI { 
@@ -51,56 +86,42 @@ class UI {
         }, 5000);
     }
 
-    printQuotes({ quotes }) {        
+    printQuotes(object) {   
+        
+        
+        let quotes = object.quotes;
         quotes.foreach(quote => {
-            const { pet, owner, phone, date, hour, symptom, id } = quote;
+            console.log(quote);
+            // const { pet, owner, phone, date, hour, symptom, id } = quote;
 
-            const divQuote = document.createElement('div');
-            divQuote.classList.add('cita', 'p-3');
-            divQuote.dataset.id = id;
+            // const divQuote = document.createElement('div');
+            // divQuote.classList.add('cita', 'p-3');
+            // divQuote.dataset.id = id;
 
-            // Scripting of the elements of the quote
-            const petP = document.createElement('h2');
-            petP.classList.add('card-title', 'font-weight-bolder');
-            petP.textContent = pet;
+            // // Scripting of the elements of the quote
+            // const petP = document.createElement('h2');
+            // petP.classList.add('card-title', 'font-weight-bolder');
+            // petP.textContent = pet;
 
-            // Add p at divQuote
-            divQuote.appendChild(petP);
+            // // Add p at divQuote
+            // divQuote.appendChild(petP);
+
+            // // Add quotes in html
+            // container.appendChild(divQuote);
         });
+
+
+
     }
 }
 
+
+
+
+
+
 const quote = new Quote();
 const ui = new UI();
-
-// Run App
-eventListeners();
-function eventListeners() {
-    petInput.addEventListener('input', dataQuote);
-    ownerInput.addEventListener('input', dataQuote);
-    phoneInput.addEventListener('input', dataQuote);
-    dateInput.addEventListener('input', dataQuote);
-    hourInput.addEventListener('input', dataQuote);
-    symptomInput.addEventListener('input', dataQuote);
-
-    form.addEventListener('submit', newQuote);
-}
-
-// OBject Quote
-const quoteObj = {
-    pet: 'Guero',
-    owner: 'Cesar',
-    phone: '1234567890',
-    date: '2022-01-01',
-    hour: '10:00',
-    symptom: 'awdawd'
-};
-
-// Add items into object quote
-function dataQuote(e) {    
-    quoteObj[e.target.name] = e.target.value;
-    //console.log(quoteObj);
-}
 
 // Checking and adding new quote 
 function newQuote(e) {
@@ -111,8 +132,7 @@ function newQuote(e) {
 
     // Valid
     if (pet === '' || owner === '' || phone === '' || date === '' || hour === '' || symptom === '') {
-        ui.printAlert('Todos los campos son obligatorios.', 'error');
-        console.log('All items is required');
+        ui.printAlert('Todos los campos son obligatorios.', 'error');        
         return;
     }
 
@@ -122,16 +142,15 @@ function newQuote(e) {
     // Create new quote
     quote.addQuote({...quoteObj});
     
-    // Reset Object
-    resetObject();
-
-    // Reset form
-    form.reset();
-
     // Show html with the quotes
     ui.printQuotes(quote);
+
+    // Reset Object & Form
+    //resetObject();    
+    //form.reset();
 }
 
+// Reset the object
 function resetObject() {
     quoteObj.pet = '';
     quoteObj.owner = '';
@@ -140,3 +159,9 @@ function resetObject() {
     quoteObj.hour = '';
     quoteObj.symptom = '';
 }
+
+// Delete Quote
+function deleteQuote(quote) { }
+
+// Loading Edit
+function loadingEdit(quote) { }
