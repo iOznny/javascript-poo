@@ -30,11 +30,11 @@ function eventListeners() {
 // OBject Quote
 const quoteObj = {
     pet: 'Guero',
-    owner: 'Cesar',
+    owner: 'Cesar C',
     phone: '1234567890',
     date: '2022-01-01',
     hour: '10:00',
-    symptom: 'awdawd'
+    symptom: 'Duerme'
 };
 
 // Add items into object quote
@@ -86,32 +86,70 @@ class UI {
         }, 5000);
     }
 
-    printQuotes(object) {   
+    printQuotes({ quotes }) {       
         
+        // Clean html
+        this.cleanHTML();
         
-        let quotes = object.quotes;
-        quotes.foreach(quote => {
-            console.log(quote);
-            // const { pet, owner, phone, date, hour, symptom, id } = quote;
+        quotes.forEach(q => {            
+            const { id, pet, owner, phone, date, hour, symptom } = q;
+    
+            const divQuote = document.createElement('div');
+            divQuote.classList.add('cita', 'p-3');
+            divQuote.dataset.id = id;
+    
+            // Scripting of the elements of the quote
+            const petP = document.createElement('h2');
+            petP.classList.add('card-title', 'font-weight-bolder');
+            petP.textContent = pet;
+    
+            // Owner
+            const ownerP = document.createElement('p');
+            ownerP.innerHTML = `
+                <span class="font-weight-bolder">Propietario: ${ owner }</span>
+            `;
 
-            // const divQuote = document.createElement('div');
-            // divQuote.classList.add('cita', 'p-3');
-            // divQuote.dataset.id = id;
+            // Phone
+            const phoneP = document.createElement('p');
+            phoneP.innerHTML = `
+                <span class="font-weight-bolder">Teléfono: ${ phone }</span>
+            `;
 
-            // // Scripting of the elements of the quote
-            // const petP = document.createElement('h2');
-            // petP.classList.add('card-title', 'font-weight-bolder');
-            // petP.textContent = pet;
+            // Date
+            const dateP = document.createElement('p');
+            dateP.innerHTML = `
+                <span class="font-weight-bolder">Fecha: ${ date }</span>
+            `;
 
-            // // Add p at divQuote
-            // divQuote.appendChild(petP);
+            // Hour
+            const hourP = document.createElement('p');
+            hourP.innerHTML = `
+                <span class="font-weight-bolder">Hora: ${ hour }</span>
+            `;
 
-            // // Add quotes in html
-            // container.appendChild(divQuote);
+            // Symptom
+            const symptomP = document.createElement('p');
+            symptomP.innerHTML = `
+                <span class="font-weight-bolder">Sintomas: ${ symptom }</span>
+            `;
+
+            // Add p at divQuote
+            divQuote.appendChild(petP);
+            divQuote.appendChild(ownerP);
+            divQuote.appendChild(phoneP);
+            divQuote.appendChild(dateP);
+            divQuote.appendChild(hourP);
+            divQuote.appendChild(symptomP);
+    
+            // Add quotes in html
+            container.appendChild(divQuote);
         });
+    }
 
-
-
+    cleanHTML() {
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
     }
 }
 
@@ -142,7 +180,7 @@ function newQuote(e) {
     // Create new quote
     quote.addQuote({...quoteObj});
     
-    // Show html with the quotes
+    // Show html with the quotes    
     ui.printQuotes(quote);
 
     // Reset Object & Form
