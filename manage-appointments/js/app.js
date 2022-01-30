@@ -14,6 +14,7 @@ const form = document.querySelector('#nueva-cita');
 const container = document.querySelector('#citas');
 form.addEventListener('submit', newQuote);
 
+// Mode Edit
 let editing = false;
 
 // Run App
@@ -55,7 +56,7 @@ class Quote {
     }
 
     // Edit quote
-    editQuote() {}
+    editQuote() { }
 
     // Delete quote
     deleteQuote(id) {
@@ -88,8 +89,7 @@ class UI {
         }, 5000);
     }
 
-    printQuotes({ quotes }) {       
-        
+    printQuotes({ quotes }) {
         // Clean html
         this.cleanHTML();
         
@@ -191,11 +191,28 @@ function newQuote(e) {
         return;
     }
 
-    // Generate ID
-    quoteObj.id = Date.now();
+    if (editing) {
+        ui.printAlert('Editado correctamente');
 
-    // Create new quote
-    quote.addQuote({...quoteObj});
+        // Change the object quote to editing
+
+
+
+        // Change text contenct to button
+        form.querySelector('button[type=submit]').textContent = 'Crear Cita';
+
+        // Remove edit mode
+        editing = false;
+    } else {                
+        // Generate ID
+        quoteObj.id = Date.now();
+    
+        // Create new quote
+        quote.addQuote({...quoteObj});
+
+        // Show message
+        ui.printAlert('Se agrego correctamente');
+    }
     
     // Show html with the quotes    
     ui.printQuotes(quote);
@@ -229,5 +246,30 @@ function deleteQuote(id) {
 
 // Loading Edit
 function loadingEdit(quote) { 
-    
+    const { id, pet, owner, phone, date, hour, symptom } = quote;
+
+    // Fill inputs
+    petInput.value = pet;
+    ownerInput.value = owner;
+    phoneInput.value = phone;
+    dateInput.value = date;
+    hourInput.value = hour;
+    symptomInput.value = symptom;
+
+    // Fill object with the new values
+    quoteObj.id = id;
+    quoteObj.pet = pet;
+    quoteObj.owner = owner;
+    quoteObj.phone = phone;
+    quoteObj.date = date;
+    quoteObj.hour = hour;
+    quoteObj.symptom = symptom;
+
+    // Change text contenct to button
+    form.querySelector('button[type=submit]').textContent = 'Guardar Cambios';
+    editing = true;
+
+    // Show message
+
+    // Refresh quotes
 }
