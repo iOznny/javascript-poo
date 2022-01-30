@@ -133,6 +133,11 @@ class UI {
                 <span class="font-weight-bolder">Sintomas: ${ symptom }</span>
             `;
 
+            // Button for delete this quote
+            const btnDelete = document.createElement('button');
+            btnDelete.classList.add('btn', 'btn-danger', 'mr-2');
+            btnDelete.innerHTML = 'Eliminar';
+
             // Add p at divQuote
             divQuote.appendChild(petP);
             divQuote.appendChild(ownerP);
@@ -140,6 +145,7 @@ class UI {
             divQuote.appendChild(dateP);
             divQuote.appendChild(hourP);
             divQuote.appendChild(symptomP);
+            divQuote.appendChild(btnDelete);
     
             // Add quotes in html
             container.appendChild(divQuote);
