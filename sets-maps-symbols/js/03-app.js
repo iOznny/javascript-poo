@@ -2,11 +2,12 @@
 
 /**
  * 1. Ordered lists with key and value.
-*/
+ */
 
 // Initialization
 const client = new Map();
 
+// Add element with map
 client.set('name', 'Dian');
 client.set('surname', 'Eunice');
 console.log(client);
