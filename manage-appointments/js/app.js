@@ -44,6 +44,9 @@ function dataQuote(e) {
 }
 
 
+
+
+
 // Class Quote & UI
 class Quote {
     constructor() {
@@ -56,7 +59,9 @@ class Quote {
     }
 
     // Edit quote
-    editQuote() { }
+    editQuote(qUpdate) { 
+        this.quotes = this.quotes.map(quote => quote.id === qUpdate.id ? qUpdate : quote);
+    }
 
     // Delete quote
     deleteQuote(id) {
@@ -174,7 +179,7 @@ class UI {
 
 
 
-
+// Initialization Class
 const quote = new Quote();
 const ui = new UI();
 
@@ -195,10 +200,9 @@ function newQuote(e) {
         ui.printAlert('Editado correctamente');
 
         // Change the object quote to editing
+        quote.editQuote({...quoteObj});
 
-
-
-        // Change text contenct to button
+        // Change text content to button
         form.querySelector('button[type=submit]').textContent = 'Crear Cita';
 
         // Remove edit mode
@@ -218,8 +222,8 @@ function newQuote(e) {
     ui.printQuotes(quote);
 
     // Reset Object & Form
-    //resetObject();    
-    //form.reset();
+    resetObject();    
+    form.reset();
 }
 
 // Reset the object
@@ -265,11 +269,7 @@ function loadingEdit(quote) {
     quoteObj.hour = hour;
     quoteObj.symptom = symptom;
 
-    // Change text contenct to button
+    // Change text content to button
     form.querySelector('button[type=submit]').textContent = 'Guardar Cambios';
     editing = true;
-
-    // Show message
-
-    // Refresh quotes
 }
