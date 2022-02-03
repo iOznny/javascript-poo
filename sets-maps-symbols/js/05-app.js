@@ -25,6 +25,4 @@ person[surname] = 'Demo2';
 person.type = 'Premium';
 person.balance = 500;
 
-
-
 console.log(person);
