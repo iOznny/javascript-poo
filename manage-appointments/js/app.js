@@ -45,8 +45,6 @@ function dataQuote(e) {
 
 
 
-
-
 // Class Quote & UI
 class Quote {
     constructor() {
@@ -175,7 +173,6 @@ class UI {
         }
     }
 }
-
 
 
 
