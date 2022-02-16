@@ -45,7 +45,7 @@ header h1 {
 }
 
 .lista-citas .cita button {
-  margin-top: 1rem!important;
+  margin-top: 1rem !important;
 }
 
 .lista-citas .cita span {
@@ -53,7 +53,7 @@ header h1 {
 }
 
 textarea {
-  height: 200px!important;
+  height: 200px !important;
 }
 
 svg {
