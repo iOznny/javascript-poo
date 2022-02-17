@@ -9,7 +9,7 @@ const client = new Map();
 
 // Add element with map
 client.set('name', 'Dian');
-client.set('surname', 'Eunice');
+client.set('surname', 'Demo');
 console.log(client);
 
 // Get length
@@ -35,7 +35,7 @@ const patient = new Map([
     ['room', 'undefined']
 ]);
 
-patient.set('doctor', 'Dr. Aurora May');
+patient.set('doctor', 'Dr. Demo May');
 
 console.log(patient);
 
